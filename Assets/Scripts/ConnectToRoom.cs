@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-
 public class ConnectToRoom : MonoBehaviourPunCallbacks
 {
     public static ConnectToRoom connectToRoom;
 
     public InputField createInput;
     public InputField joinInput;
-    public InputField inputText;
-    public string speedValue;
+    public InputField speedText, nameText;
+    public string speedValue, nameValue;
 
     private void Awake()
     {
@@ -27,14 +26,18 @@ public class ConnectToRoom : MonoBehaviourPunCallbacks
     }
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(createInput.text);
-        speedValue = inputText.text;
+            PhotonNetwork.CreateRoom(createInput.text);
+            speedValue = speedText.text;
+            nameValue = nameText.text;
+        
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(joinInput.text);
-        speedValue = inputText.text;
+            PhotonNetwork.JoinRoom(joinInput.text);
+            speedValue = speedText.text;
+            nameValue = nameText.text;
+        
     }
 
     public override void OnJoinedRoom()
